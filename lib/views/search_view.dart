@@ -9,6 +9,7 @@ class SearchView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('search a city'),
       ),
+      body: TextField(),
     );
   }
 }
