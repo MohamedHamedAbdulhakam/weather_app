@@ -21,7 +21,7 @@ class WeatherInfoBody extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                //Image.asset('assets/cloudy.png'),
+                //  Image.asset('assets/cloudy.png'),
                 Text('17',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 32)),

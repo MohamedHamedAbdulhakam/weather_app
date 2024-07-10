@@ -21,7 +21,7 @@ class HomeView extends StatelessWidget {
                 ),
               );
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
             ),
           )
