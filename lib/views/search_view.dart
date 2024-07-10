@@ -16,6 +16,9 @@ class SearchView extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: Center(
           child: TextField(
+            onSubmitted: (value) {
+              print(value);
+            },
             decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
