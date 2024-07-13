@@ -11,7 +11,9 @@ class WeatherService {
     try {
       Response response = await dio.get(
           '$domain/forecast.json?key=$apiKey&q=London&days=1&aqi=no&alerts=no');
-      WeatherModel weatherModel = WeatherModel.fromJson(response.data);
+      if (response.statusCode) {
+        WeatherModel weatherModel = WeatherModel.fromJson(response.data);
+      } else {}
       return weatherModel;
     } catch (e) {
       return null;
