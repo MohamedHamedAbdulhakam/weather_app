@@ -1,5 +1,7 @@
-class NoWeatherState {}
+class WeatherState {}
 
-class WeatherLoadedState {}
+class NoWeatherState extends WeatherState {}
 
-class weatherFailureState {}
+class WeatherLoadedState extends WeatherState {}
+
+class weatherFailureState extends WeatherState {}
