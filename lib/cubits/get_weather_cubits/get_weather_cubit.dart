@@ -7,13 +7,16 @@ import 'package:weather_app/views/search_view.dart';
 
 class GetWeatherCubit extends Cubit<WeatherState> {
   GetWeatherCubit() : super(NoWeatherState());
+  late WeatherModel weatherModel;
   getweather(String value, {required String cityname}) async {
     try {
-      weatherModel = await WeatherService(dio: Dio())
-          .getCurrentWeather(cityname: cityname);
+      weatherModel = (await WeatherService(dio: Dio())
+          .getCurrentWeather(cityname: cityname))!;
       emit(WeatherLoadedState(weatherModel!));
     } catch (e) {
-      emit(weatherFailureState());
+      emit(
+        weatherFailureState(e.toString()),
+      );
       // TODO
     }
   }
