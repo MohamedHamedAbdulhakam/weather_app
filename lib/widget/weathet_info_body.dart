@@ -11,6 +11,7 @@ class WeatherInfoBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
+    weatherModel.image!.contains("https");
     return Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 16,
@@ -18,27 +19,30 @@ class WeatherInfoBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            customText(weathermodel: weathermodel),
-            Text('updated at 7 pm', style: TextStyle(fontSize: 32)),
+            // customText(weathermodel: weathermodel),
+            Text('updated at${weatherModel.date}',
+                style: TextStyle(fontSize: 32)),
             SizedBox(
               height: 32,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                //  Image.asset('assets/cloudy.png'),
-                Text('17',
+                Image.network(weatherModel.image!),
+                Text(weatherModel.temp.toString(),
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 32)),
                 Column(
                   children: [
-                    Text('max temp 24', style: TextStyle(fontSize: 16)),
-                    Text('min temp 16', style: TextStyle(fontSize: 16)),
+                    Text('max temp ${weatherModel.maxtemp.round()}',
+                        style: TextStyle(fontSize: 16)),
+                    Text('min temp ${weatherModel.mintemp.round()}',
+                        style: TextStyle(fontSize: 16)),
                   ],
                 )
               ],
             ),
-            Text('light rain',
+            Text(weatherModel.weathercondition,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32)),
           ],
         ));
