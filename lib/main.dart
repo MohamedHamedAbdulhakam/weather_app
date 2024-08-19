@@ -14,27 +14,36 @@ class WeaterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => GetWeatherCubit(),
-      child: CustomMaterialApp(),
+      child: Builder(
+        builder: (context) => MaterialApp(
+          theme: ThemeData(
+              primarySwatch: getThemeColor(
+                  BlocProvider.of<GetWeatherCubit>(context)
+                      .weatherModel
+                      ?.weathercondition)),
+          home: HomeView(),
+        ),
+      ),
     );
   }
 }
 
-class CustomMaterialApp extends StatelessWidget {
-  const CustomMaterialApp({
-    super.key,
-  });
+// class CustomMaterialApp extends StatelessWidget {
+//   const CustomMaterialApp({
+//     super.key,
+//   });
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          primarySwatch: getThemeColor(BlocProvider.of<GetWeatherCubit>(context)
-              .weatherModel
-              ?.weathercondition)),
-      home: HomeView(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       theme: ThemeData(
+//           primarySwatch: getThemeColor(BlocProvider.of<GetWeatherCubit>(context)
+//               .weatherModel
+//               ?.weathercondition)),
+//       home: HomeView(),
+//     );
+//   }
+// }
 
 MaterialColor getThemeColor(String? weatherStateName) {
   if (weatherStateName == null) {
