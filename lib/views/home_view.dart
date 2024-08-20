@@ -16,7 +16,8 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Weater App'),
-        backgroundColor: Colors.blue,
+        // backgroundColor: Colors.blue,
+        iconTheme: AppBarTheme.of(context).copyWith().actionsIconTheme,
         actions: [
           IconButton(
             onPressed: () {

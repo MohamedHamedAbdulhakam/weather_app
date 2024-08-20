@@ -17,6 +17,7 @@ class SearchView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('search a city'),
+        // backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -26,8 +27,9 @@ class SearchView extends StatelessWidget {
               var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
               // weatherModel = await WeatherService(dio: Dio())
               //     .getCurrentWeather(cityname: value);
+
+              getWeatherCubit.getweather(value, cityname: value);
               Navigator.of(context).pop();
-              getWeatherCubit.getweather(value, cityname: '');
             },
             decoration: InputDecoration(
                 border: OutlineInputBorder(
