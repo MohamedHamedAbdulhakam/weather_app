@@ -31,6 +31,8 @@ class WeaterApp extends StatelessWidget {
       ),
     );
   }
+
+}
   MaterialColor getThemeColor(String? weatherStateName) {
   if (weatherStateName == null) {
     return Colors.blue;
@@ -65,8 +67,6 @@ class WeaterApp extends StatelessWidget {
     return Colors.blue;
   }
 }
-}
-
 // class CustomMaterialApp extends StatelessWidget {
 //   const CustomMaterialApp({
 //     super.key,
@@ -78,7 +78,7 @@ class WeaterApp extends StatelessWidget {
 //       theme: ThemeData(
 //           primarySwatch: getThemeColor(BlocProvider.of<GetWeatherCubit>(context)
 //               .weatherModel
-//               ?.weathercondition)),
+//       //        ?.weathercondition)),
 //       home: HomeView(),
 //     );
 //   }

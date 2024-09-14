@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_weather_cubits/get_weather_cubit.dart';
+import 'package:weather_app/main.dart';
 import 'package:weather_app/models/weather_models.dart';
 // import 'package:weather_app/models/weather_models.dart';
 // //import 'package:weather_app/models/weather_models.dart';
@@ -16,11 +17,12 @@ class WeatherInfoBody extends StatelessWidget {
         BlocProvider.of<GetWeatherCubit>(context).weatherModel!;
     weatherModel.image!.contains("https");
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Colors.blue,
-            Colors.yellow,
+            getThemeColor(weatherModel.weathercondition),
+            getThemeColor(weatherModel.weathercondition)[300]!,
+            getThemeColor(weatherModel.weathercondition)[50]!,
           ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
