@@ -1,25 +1,25 @@
-// import 'package:weather_app/models/weather_models.dart';
+import 'package:weather_app/models/weather_models.dart';
 
-// class WeatherState {}
+class WeatherState {}
 
-// class NoWeatherState extends WeatherState {}
+class NoWeatherState extends WeatherState {}
 
-// class WeatherLoadedState extends WeatherState {
-//   final WeatherModel weatherModel;
+class WeatherLoadedState extends WeatherState {
+  final WeatherModel weatherModel;
 
-//   WeatherLoadedState(this.weatherModel);
-// }
+  WeatherLoadedState(this.weatherModel);
+}
 
-// class weatherFailureState extends WeatherState {
-//   final String errMessage;
+class WeatherFailureState extends WeatherState {
+  final String errMessage;
 
-//   weatherFailureState(this.errMessage);
-// }
+  WeatherFailureState(this.errMessage);
+}
 
-abstract class WeatherState {}
+// abstract class GetWeatherState {}
 
-class WeatherLoadedState extends WeatherState {}
+// class WeatherLoadedState extends GetWeatherState {}
 
-class WeatherSuccessState extends WeatherState {}
+// class WeatherSuccessState extends GetWeatherState {}
 
-class WeatherFailureState extends WeatherState {}
+// class WeatherFailureState extends GetWeatherState {}

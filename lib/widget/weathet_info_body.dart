@@ -7,7 +7,7 @@ import 'package:weather_app/models/weather_models.dart';
 // import 'package:weather_app/views/search_view.dart';
 
 class WeatherInfoBody extends StatelessWidget {
-  const WeatherInfoBody({Key? key, required this.weather}) : super(key: key);
+  const WeatherInfoBody({super.key, required this.weather});
   final WeatherModel weather;
 
   @override
@@ -16,7 +16,7 @@ class WeatherInfoBody extends StatelessWidget {
         BlocProvider.of<GetWeatherCubit>(context).weatherModel!;
     weatherModel.image!.contains("https");
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
             Colors.blue,
@@ -47,8 +47,8 @@ class WeatherInfoBody extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.network(weatherModel.image!),
-                  Text(weatherModel.temp.toString(),
+                  Image.network('https:${weatherModel.image!}'),
+                  Text(weatherModel.temp.round().toString(),
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 32)),
                   Column(
@@ -67,20 +67,5 @@ class WeatherInfoBody extends StatelessWidget {
             ],
           )),
     );
-  }
-}
-
-class customText extends StatelessWidget {
-  const customText({
-    super.key,
-    required this.weathermodel,
-  });
-
-  final weathermodel;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(weathermodel.cityname,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32));
   }
 }

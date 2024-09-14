@@ -5,7 +5,7 @@ import 'package:weather_app/cubits/get_weather_cubits/get_weather_state.dart';
 import 'package:weather_app/views/home_view.dart';
 
 void main() {
-  runApp(WeaterApp());
+  runApp(const  WeaterApp());
 }
 
 class WeaterApp extends StatelessWidget {
@@ -22,9 +22,8 @@ class WeaterApp extends StatelessWidget {
               theme: ThemeData(
                   primarySwatch: getThemeColor(
                       BlocProvider.of<GetWeatherCubit>(context)
-                          .weatherModel
-                          ?.weathercondition)),
-              home: HomeView(),
+                          .weatherModel?.weathercondition)),
+              home: const HomeView(),
             );
           },
         ),
@@ -81,6 +80,6 @@ MaterialColor getThemeColor(String? weatherStateName) {
       weatherStateName == 'Patchy light rain with thunder') {
     return Colors.deepPurple;
   } else {
-    return Colors.orange;
+    return Colors.blue;
   }
 }

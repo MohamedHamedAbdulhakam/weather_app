@@ -12,7 +12,7 @@ class WeatherService {
   Future<WeatherModel?> getCurrentWeather({required String cityname}) async {
     try {
       Response response = await dio.get(
-          '$domain/forecast.json?key=$apiKey&q=London&days=1&aqi=no&alerts=no');
+          '$domain/forecast.json?key=$apiKey&q=$cityname&days=1&aqi=no&alerts=no');
 
       WeatherModel weatherModel = WeatherModel.fromJson(response.data);
       return weatherModel;
@@ -27,3 +27,4 @@ class WeatherService {
     }
   }
 }
+//http://api.weatherapi.com/v1/forecast.json?key=36e1d34f88db4066933180908241207&q=London&days=1&aqi=no&alerts=no');
